@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kunalhemrajani/docker-react-sample-deployment -f Dockerfile.dev .
+
+script:
+  - docker run kunalhemrajani/docker-react-sample-deployment npm run test -- --coverage
